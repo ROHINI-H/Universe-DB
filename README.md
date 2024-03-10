@@ -1,4 +1,4 @@
-# Universe-DB
+# Universe-DB.sql
 I have build a database of celestial bodies using PostgreSQL in a virtual Linux machine using Gitpod. 
 
 In this Database Universe, I have created 5 tables named galaxy, star, planet, moon and spacecraft_mission. Each table have a primary key that will automatically increment follow the naming convention table_name_id. 
@@ -94,3 +94,5 @@ SPACECRAFT_MISSION
 Indexes:
     "spacecraft_mission_pkey" PRIMARY KEY, btree (spacecraft_mission_id)
     "spacecraft_mission_name_key" UNIQUE CONSTRAINT, btree (name)
+
+# Student-db.sql
