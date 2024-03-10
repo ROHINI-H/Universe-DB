@@ -96,3 +96,8 @@ Indexes:
     "spacecraft_mission_name_key" UNIQUE CONSTRAINT, btree (name)
 
 # Student-db.sql
+
+
+
+To rebuild the database:
+psql -U postgres < students.sql
