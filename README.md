@@ -5,16 +5,16 @@ In this Database Universe, I have created 5 tables named galaxy, star, planet, m
 
 GALAXY
                                                      Table "public.galaxy"
-+---------------------------------+------------------------+-----------+----------+-------------------------------------------+
+|---------------------------------|------------------------|-----------|----------|-------------------------------------------|
 |             Column              |          Type          | Collation | Nullable |                  Default                  |
-+---------------------------------+------------------------+-----------+----------+-------------------------------------------+
+|---------------------------------|------------------------|-----------|----------|-------------------------------------------|
 | galaxy_id                       | integer                |           | not null | nextval('galaxy_galaxy_id_seq'::regclass) |
 | name                            | character varying(50)  |           | not null |                                           |
 | galaxy_type                     | character varying(30)  |           |          |                                           |
 | description                     | character varying(200) |           |          |                                           |
 | distance_in_million_light_years | numeric                |           |          |                                           |
 | constellation                   | text                   |           |          |                                           |
-+---------------------------------+------------------------+-----------+----------+-------------------------------------------+
+|---------------------------------|------------------------|-----------|----------|-------------------------------------------|
 Indexes:
     "galaxy_pkey" PRIMARY KEY, btree (galaxy_id)
     "galaxy_name_key" UNIQUE CONSTRAINT, btree (name)
