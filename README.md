@@ -64,7 +64,7 @@ MOON
                                            Table "public.moon"
 
 |     Column      |         Type          | Collation | Nullable |                Default                |
--
+----------------------------------------------------------------------------------------------------------
 | moon_id         | integer               |           | not null | nextval('moon_moon_id_seq'::regclass) |
 | name            | character varying(50) |           | not null |                                       |
 | year_discovered | integer               |           |          |                                       |
