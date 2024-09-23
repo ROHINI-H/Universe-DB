@@ -23,7 +23,7 @@ Referenced by:
 PLANET
                                                Table "public.planet"
 |        Column        |         Type          | Collation | Nullable |                  Default                  |
-+----------------------+-----------------------+-----------+----------+-------------------------------------------+
+|----------------------|-----------------------|-----------|----------|-------------------------------------------|
 | planet_id            | integer               |           | not null | nextval('planet_planet_id_seq'::regclass) |
 | name                 | character varying(50) |           | not null |                                           |
 | has_life             | boolean               |           |          |                                           |
@@ -45,7 +45,7 @@ STAR
                                               Table "public.star"
 
 |        Column         |         Type          | Collation | Nullable |                Default                |
-+-----------------------+-----------------------+-----------+----------+---------------------------------------+
+|-----------------------|-----------------------|-----------|----------|---------------------------------------|
 | star_id               | integer               |           | not null | nextval('star_star_id_seq'::regclass) |
 | name                  | character varying(50) |           | not null |                                       |
 | distance_from_earth   | numeric               |           |          |                                       |
@@ -64,7 +64,7 @@ MOON
                                            Table "public.moon"
 
 |     Column      |         Type          | Collation | Nullable |                Default                |
-+-----------------+-----------------------+-----------+----------+---------------------------------------+
+-
 | moon_id         | integer               |           | not null | nextval('moon_moon_id_seq'::regclass) |
 | name            | character varying(50) |           | not null |                                       |
 | year_discovered | integer               |           |          |                                       |
@@ -80,7 +80,7 @@ Foreign-key constraints:
 SPACECRAFT_MISSION
                                                       Table "public.spacecraft_mission"
 |        Column         |          Type          | Collation | Nullable |                              Default                              |
-+-----------------------+------------------------+-----------+----------+-------------------------------------------------------------------+
+-
 | spacecraft_mission_id | integer                |           | not null | nextval('spacecraft_mission_spacecraft_mission_id_seq'::regclass) |
 | name                  | character varying(50)  |           | not null |                                                                   |
 | launch_date           | date                   |           |          |                                                                   |
