@@ -54,7 +54,7 @@ I have build a database of celestial bodies using PostgreSQL in a virtual Linux 
 
 In this Database Universe, I have created 5 tables named galaxy, star, planet, moon and spacecraft_mission. Each table have a primary key that will automatically increment follow the naming convention table_name_id. 
 
-### GALAXY
+## GALAXY
                                                 Table "public.galaxy"
 |             Column              |          Type          | Collation | Nullable |                  Default                  |
 |---------------------------------|------------------------|-----------|----------|-------------------------------------------|
@@ -65,13 +65,13 @@ In this Database Universe, I have created 5 tables named galaxy, star, planet, m
 | distance_in_million_light_years | numeric                |           |          |                                           |
 | constellation                   | text                   |           |          |                                           |
 
-**Indexes:**   
+### Indexes:   
     - "galaxy_pkey" PRIMARY KEY, btree (galaxy_id)
     - "galaxy_name_key" UNIQUE CONSTRAINT, btree (name)
 #### Referenced by:
-    - TABLE "star" CONSTRAINT "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
+    TABLE "star" CONSTRAINT "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
 
-### PLANET
+## PLANET
                                                Table "public.planet"
 |        Column        |         Type          | Collation | Nullable |                  Default                  |
 |----------------------|-----------------------|-----------|----------|-------------------------------------------|
@@ -84,15 +84,15 @@ In this Database Universe, I have created 5 tables named galaxy, star, planet, m
 | age_in_billion_years | numeric               |           |          |                                           |
 | star_id              | integer               |           |          |                                           |
 
-**Indexes:**   
+### Indexes:   
     - "planet_pkey" PRIMARY KEY, btree (planet_id)
     - "planet_name_key" UNIQUE CONSTRAINT, btree (name)
-Foreign-key constraints:
+#### Foreign-key constraints:
     - "planet_star_id_fkey" FOREIGN KEY (star_id) REFERENCES star(star_id)
-Referenced by:
+#### Referenced by:
     - TABLE "moon" CONSTRAINT "moon_planet_id_fkey" FOREIGN KEY (planet_id) REFERENCES planet(planet_id)
 
-### STAR
+## STAR
                                               Table "public.star"
 
 |        Column         |         Type          | Collation | Nullable |                Default                |
@@ -103,15 +103,15 @@ Referenced by:
 | temperature_in_kelvin | integer               |           |          |                                       |
 | galaxy_id             | integer               |           |          |                                       |
  
-**Indexes:**   
+### Indexes:   
     - "star_pkey" PRIMARY KEY, btree (star_id)
     - "star_name_key" UNIQUE CONSTRAINT, btree (name)
-Foreign-key constraints:
+#### Foreign-key constraints:
     - "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
-Referenced by:
+#### Referenced by:
     TABLE "planet" CONSTRAINT "planet_star_id_fkey" FOREIGN KEY (star_id) REFERENCES star(star_id)
 
-MOON
+## MOON
                                            Table "public.moon"
 
 |     Column      |         Type          | Collation | Nullable |                Default                |
@@ -122,13 +122,13 @@ MOON
 | mean_radius     | numeric               |           |          |                                       |
 | planet_id       | integer               |           |          |                                       |
 
-Indexes:   
+### Indexes:   
     "moon_pkey" PRIMARY KEY, btree (moon_id)
     "moon_name_key" UNIQUE CONSTRAINT, btree (name)
-Foreign-key constraints:
+#### Foreign-key constraints:
     "moon_planet_id_fkey" FOREIGN KEY (planet_id) REFERENCES planet(planet_id)
 
-SPACECRAFT_MISSION
+## SPACECRAFT_MISSION
                                                       Table "public.spacecraft_mission"
 |        Column         |          Type          | Collation | Nullable |                              Default                              |
 |-----------------------|------------------------|-----------|----------|-------------------------------------------------------------------|
@@ -139,7 +139,7 @@ SPACECRAFT_MISSION
 | orbit_type            | character varying(50)  |           |          |                                                                   |
 | application           | character varying(70)  |           |          |                                                                   |
 
-Indexes:   
+### Indexes:   
     "spacecraft_mission_pkey" PRIMARY KEY, btree (spacecraft_mission_id)
     "spacecraft_mission_name_key" UNIQUE CONSTRAINT, btree (name)
     
