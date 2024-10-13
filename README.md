@@ -54,7 +54,7 @@ I have build a database of celestial bodies using PostgreSQL in a virtual Linux 
 
 In this Database Universe, I have created 5 tables named galaxy, star, planet, moon and spacecraft_mission. Each table have a primary key that will automatically increment follow the naming convention table_name_id. 
 
-GALAXY
+### GALAXY
                                                 Table "public.galaxy"
 |             Column              |          Type          | Collation | Nullable |                  Default                  |
 |---------------------------------|------------------------|-----------|----------|-------------------------------------------|
@@ -65,11 +65,11 @@ GALAXY
 | distance_in_million_light_years | numeric                |           |          |                                           |
 | constellation                   | text                   |           |          |                                           |
 
-Indexes:   
-    "galaxy_pkey" PRIMARY KEY, btree (galaxy_id)
-    "galaxy_name_key" UNIQUE CONSTRAINT, btree (name)
+**Indexes:**   
+    * "galaxy_pkey" PRIMARY KEY, btree (galaxy_id)
+    * "galaxy_name_key" UNIQUE CONSTRAINT, btree (name)
 Referenced by:
-    TABLE "star" CONSTRAINT "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
+    * TABLE "star" CONSTRAINT "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
 
 PLANET
                                                Table "public.planet"
