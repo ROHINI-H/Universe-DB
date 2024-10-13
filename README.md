@@ -55,7 +55,7 @@ I have build a database of celestial bodies using PostgreSQL in a virtual Linux 
 In this Database Universe, I have created 5 tables named galaxy, star, planet, moon and spacecraft_mission. Each table have a primary key that will automatically increment follow the naming convention table_name_id. 
 
 ## GALAXY
-                                                `Table "public.galaxy"`
+                                                Table "public.galaxy"
 |             Column              |          Type          | Collation | Nullable |                  Default                  |
 |---------------------------------|------------------------|-----------|----------|-------------------------------------------|
 | galaxy_id                       | integer                |           | not null | nextval('galaxy_galaxy_id_seq'::regclass) |
@@ -65,7 +65,7 @@ In this Database Universe, I have created 5 tables named galaxy, star, planet, m
 | distance_in_million_light_years | numeric                |           |          |                                           |
 | constellation                   | text                   |           |          |                                           |
 
-### Indexes:
+### Indexes:   
     1. "galaxy_pkey" PRIMARY KEY, btree (galaxy_id)
     2. "galaxy_name_key" UNIQUE CONSTRAINT, btree (name)
     
