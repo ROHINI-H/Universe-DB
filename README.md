@@ -55,7 +55,7 @@ I have build a database of celestial bodies using PostgreSQL in a virtual Linux 
 In this Database Universe, I have created 5 tables named galaxy, star, planet, moon and spacecraft_mission. Each table have a primary key that will automatically increment follow the naming convention table_name_id. 
 
 ## GALAXY
-                                                Table "public.galaxy"
+                                                `Table "public.galaxy"`
 |             Column              |          Type          | Collation | Nullable |                  Default                  |
 |---------------------------------|------------------------|-----------|----------|-------------------------------------------|
 | galaxy_id                       | integer                |           | not null | nextval('galaxy_galaxy_id_seq'::regclass) |
@@ -65,14 +65,15 @@ In this Database Universe, I have created 5 tables named galaxy, star, planet, m
 | distance_in_million_light_years | numeric                |           |          |                                           |
 | constellation                   | text                   |           |          |                                           |
 
-### Indexes:   
-    - "galaxy_pkey" PRIMARY KEY, btree (galaxy_id)
-    - "galaxy_name_key" UNIQUE CONSTRAINT, btree (name)
+### Indexes:
+    1. "galaxy_pkey" PRIMARY KEY, btree (galaxy_id)
+    2. "galaxy_name_key" UNIQUE CONSTRAINT, btree (name)
+    
 #### Referenced by:
     TABLE "star" CONSTRAINT "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
 
 ## PLANET
-                                               Table "public.planet"
+                                               `Table "public.planet"`
 |        Column        |         Type          | Collation | Nullable |                  Default                  |
 |----------------------|-----------------------|-----------|----------|-------------------------------------------|
 | planet_id            | integer               |           | not null | nextval('planet_planet_id_seq'::regclass) |
@@ -85,15 +86,15 @@ In this Database Universe, I have created 5 tables named galaxy, star, planet, m
 | star_id              | integer               |           |          |                                           |
 
 ### Indexes:   
-    - "planet_pkey" PRIMARY KEY, btree (planet_id)
-    - "planet_name_key" UNIQUE CONSTRAINT, btree (name)
+    1. "planet_pkey" PRIMARY KEY, btree (planet_id)
+    2. "planet_name_key" UNIQUE CONSTRAINT, btree (name)
 #### Foreign-key constraints:
-    - "planet_star_id_fkey" FOREIGN KEY (star_id) REFERENCES star(star_id)
+    "planet_star_id_fkey" FOREIGN KEY (star_id) REFERENCES star(star_id)
 #### Referenced by:
-    - TABLE "moon" CONSTRAINT "moon_planet_id_fkey" FOREIGN KEY (planet_id) REFERENCES planet(planet_id)
+    TABLE "moon" CONSTRAINT "moon_planet_id_fkey" FOREIGN KEY (planet_id) REFERENCES planet(planet_id)
 
 ## STAR
-                                              Table "public.star"
+                                              `Table "public.star"`
 
 |        Column         |         Type          | Collation | Nullable |                Default                |
 |-----------------------|-----------------------|-----------|----------|---------------------------------------|
@@ -104,15 +105,15 @@ In this Database Universe, I have created 5 tables named galaxy, star, planet, m
 | galaxy_id             | integer               |           |          |                                       |
  
 ### Indexes:   
-    - "star_pkey" PRIMARY KEY, btree (star_id)
-    - "star_name_key" UNIQUE CONSTRAINT, btree (name)
+    1. "star_pkey" PRIMARY KEY, btree (star_id)
+    2. "star_name_key" UNIQUE CONSTRAINT, btree (name)
 #### Foreign-key constraints:
-    - "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
+    "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
 #### Referenced by:
     TABLE "planet" CONSTRAINT "planet_star_id_fkey" FOREIGN KEY (star_id) REFERENCES star(star_id)
 
 ## MOON
-                                           Table "public.moon"
+                                           `Table "public.moon"`
 
 |     Column      |         Type          | Collation | Nullable |                Default                |
 |-----------------|-----------------------|-----------|----------|---------------------------------------|
@@ -123,13 +124,13 @@ In this Database Universe, I have created 5 tables named galaxy, star, planet, m
 | planet_id       | integer               |           |          |                                       |
 
 ### Indexes:   
-    "moon_pkey" PRIMARY KEY, btree (moon_id)
-    "moon_name_key" UNIQUE CONSTRAINT, btree (name)
+    1. "moon_pkey" PRIMARY KEY, btree (moon_id)
+    2. "moon_name_key" UNIQUE CONSTRAINT, btree (name)
 #### Foreign-key constraints:
     "moon_planet_id_fkey" FOREIGN KEY (planet_id) REFERENCES planet(planet_id)
 
 ## SPACECRAFT_MISSION
-                                                      Table "public.spacecraft_mission"
+                                                      `Table "public.spacecraft_mission"`
 |        Column         |          Type          | Collation | Nullable |                              Default                              |
 |-----------------------|------------------------|-----------|----------|-------------------------------------------------------------------|
 | spacecraft_mission_id | integer                |           | not null | nextval('spacecraft_mission_spacecraft_mission_id_seq'::regclass) |
@@ -140,8 +141,8 @@ In this Database Universe, I have created 5 tables named galaxy, star, planet, m
 | application           | character varying(70)  |           |          |                                                                   |
 
 ### Indexes:   
-    "spacecraft_mission_pkey" PRIMARY KEY, btree (spacecraft_mission_id)
-    "spacecraft_mission_name_key" UNIQUE CONSTRAINT, btree (name)
+    1. "spacecraft_mission_pkey" PRIMARY KEY, btree (spacecraft_mission_id)
+    2. "spacecraft_mission_name_key" UNIQUE CONSTRAINT, btree (name)
     
 ## 🔏License
 This project is licensed under the MIT License.
