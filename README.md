@@ -66,12 +66,12 @@ In this Database Universe, I have created 5 tables named galaxy, star, planet, m
 | constellation                   | text                   |           |          |                                           |
 
 **Indexes:**   
-    * "galaxy_pkey" PRIMARY KEY, btree (galaxy_id)
-    * "galaxy_name_key" UNIQUE CONSTRAINT, btree (name)
-Referenced by:
-    * TABLE "star" CONSTRAINT "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
+    - "galaxy_pkey" PRIMARY KEY, btree (galaxy_id)
+    - "galaxy_name_key" UNIQUE CONSTRAINT, btree (name)
+#### Referenced by:
+    - TABLE "star" CONSTRAINT "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
 
-PLANET
+### PLANET
                                                Table "public.planet"
 |        Column        |         Type          | Collation | Nullable |                  Default                  |
 |----------------------|-----------------------|-----------|----------|-------------------------------------------|
@@ -84,15 +84,15 @@ PLANET
 | age_in_billion_years | numeric               |           |          |                                           |
 | star_id              | integer               |           |          |                                           |
 
-Indexes:   
-    "planet_pkey" PRIMARY KEY, btree (planet_id)
-    "planet_name_key" UNIQUE CONSTRAINT, btree (name)
+**Indexes:**   
+    - "planet_pkey" PRIMARY KEY, btree (planet_id)
+    - "planet_name_key" UNIQUE CONSTRAINT, btree (name)
 Foreign-key constraints:
-    "planet_star_id_fkey" FOREIGN KEY (star_id) REFERENCES star(star_id)
+    - "planet_star_id_fkey" FOREIGN KEY (star_id) REFERENCES star(star_id)
 Referenced by:
-    TABLE "moon" CONSTRAINT "moon_planet_id_fkey" FOREIGN KEY (planet_id) REFERENCES planet(planet_id)
+    - TABLE "moon" CONSTRAINT "moon_planet_id_fkey" FOREIGN KEY (planet_id) REFERENCES planet(planet_id)
 
-STAR
+### STAR
                                               Table "public.star"
 
 |        Column         |         Type          | Collation | Nullable |                Default                |
@@ -103,11 +103,11 @@ STAR
 | temperature_in_kelvin | integer               |           |          |                                       |
 | galaxy_id             | integer               |           |          |                                       |
  
-Indexes:   
-    "star_pkey" PRIMARY KEY, btree (star_id)
-    "star_name_key" UNIQUE CONSTRAINT, btree (name)
+**Indexes:**   
+    - "star_pkey" PRIMARY KEY, btree (star_id)
+    - "star_name_key" UNIQUE CONSTRAINT, btree (name)
 Foreign-key constraints:
-    "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
+    - "star_galaxy_id_fkey" FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
 Referenced by:
     TABLE "planet" CONSTRAINT "planet_star_id_fkey" FOREIGN KEY (star_id) REFERENCES star(star_id)
 
